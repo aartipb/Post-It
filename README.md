@@ -1,5 +1,5 @@
-# NotesOnline
-A place to store online notes! Built with a Node.js backend connected to the HTML/JS/JQuery frontend using express middleware.
+# Post-It-4-24
+A place to store online notes for 24 hours! Built with a Node.js backend connected to the HTML/JS/JQuery frontend using express middleware.
 
 ## Tools to install
 Before running the project, please be sure to install both node.js (https://nodejs.org/en/) and a code editor such as VSCode (https://code.visualstudio.com) somewhere on your computer.
@@ -8,7 +8,7 @@ Before running the project, please be sure to install both node.js (https://node
 1. Create and save an empty folder somewhere on your computer.
 2. Open a terminal or bash (possibly through your code editor) and proceed to navigate the terminal into the folder you created.
 3. Clone this repository into the folder by typing:
-``` git clone https://github.com/AB152/NotesOnline.git ```
+``` git clone https://github.com/aartipb/Post-It.git ```
 4. Press enter.
 5. Type ``` npm install ```.
 6. Press enter.
