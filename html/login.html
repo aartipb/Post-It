@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function(e) {
+        $("#loginform").submit(function(event){
+            $.ajax({
+                  url:"http://localhost:3000/login_check",
+                  method: "POST",
+                  data : $("#loginform").serialize(),
+                  cache : false,
+                  async: false,
+                  success : function (data) {
+                        event.preventDefault()
+                        self.location.replace('http://localhost:3000/textpage');
+                  },
+                  error : function (error) {
+                    if(error.responseText == 'showAlert'){
+                      alert("Please enter correct password.")
+                    }
+                    else{
+                      alert("No user found");
+                    }
+                  }
+            })
+        })
+      })
+  </script>
+  <link rel="stylesheet" type="text/css" href="/user_login.css" />
+</head>
+
+<div class="login">
+<h1>Login</h1>
+  <form id="loginform">
+      <input type="text" placeholder="Enter Username" name="fname" required />
+      <input type="password" placeholder="Enter Password" name="psw" required />
+      <button type="submit" class="btn btn-primary btn-block btn-large">Login</button>
+  </form>
+</div>
+
+<form action="http://localhost:3000/">
+<button type="submit">Go back to homepage</button>  
+</form>
+
+</html>
+

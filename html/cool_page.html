@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<head>
+    <title>My Website</title>
+    <style>
+        *,
+        html {
+            margin: 0;
+            padding: 0;
+            border: 0;
+        }
+
+        html {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            background-color: rgb(246, 246, 246);
+            cursor: pointer;
+        }
+
+        .center {
+            width: 100%;
+            height: 50%;
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(141, 141, 141);
+            font-family: "Trebuchet MS", Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 60px;
+        }
+
+        p {
+            font-size: 32px;
+        }
+        c {
+            font-size: 20 px;
+        }
+    </style>
+    <script>
+        function goto(){
+            location.href = "http://localhost:3000"
+        }
+     </script>
+</head>
+
+<body onclick="goto()">
+    <div class="center enterPage">
+        <h1>About Us</h1>
+        <p>Post-It-4-24 strives to help individuals quickly note down what's on their mind. The best part is, your information is secured with your own unique login. From journaling, blogging, and class project ideas to grocery lists and to-do lists, Post-It-4-24 is here for you and your privacy!</p>
+        <br><br><br><br><br><br><br><br>
+        <c>Click anywhere to return to the home page</c>
+    </div>
+</body>
+
+</html>

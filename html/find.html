@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+$(document).ready(function(e) {
+    $("#userform").on("submit",function(){
+        $.ajax({
+              url:"http://localhost:3000/user_exists_check",
+              method: "POST",
+              data : $("#userform").serialize(),
+              cache : false,
+              async: false,
+              success : function (data) {
+                  if(data){
+                      alert("User Exists!")
+                  }
+                  else{
+                    alert("User not found")
+                  }
+              },
+              error : function () {
+                  alert("Oops! Something went wrong");
+              }
+        })
+    })
+  })
+  </script>
+  <link rel="stylesheet" type="text/css" href="/find.css" />
+</head>
+
+<div class="find">
+  <h1>Find a User</h1>
+  <form id="userform">
+    <input type="text" id="name" name="name" placeholder="Enter a user">
+    <input type="submit" value="Check" class="btn btn-primary btn-block btn-large">
+  </form>
+</div>
+
+
+<form action="http://localhost:3000/">
+  <button type="submit">Go back to homepage</button>  
+</form>
+
+</html>
+

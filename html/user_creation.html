@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(e) {
+      $("#account_creation_form").submit(function(event){
+          $.ajax({
+                url:"http://localhost:3000/users",
+                method: "POST",
+                data : $("#account_creation_form").serialize(),
+                cache : false,
+                async: false,
+                success : function (data) {
+                      event.preventDefault()
+                      self.location.replace('http://localhost:3000');
+                },
+                error : function (error) {
+                  if(error.responseText == 'error1'){
+                    alert("Username already taken, please enter another username")
+                  }
+                  else{
+                    alert("Something went wrong");
+                  }
+                }
+          })
+      })
+    })
+      </script>
+    <link rel="stylesheet" type="text/css" href="/user_creation.css" />
+</head>
+<div class="login">
+  <h1>Account Creation</h1>
+    <form id="account_creation_form">
+        <input type="text" placeholder="Enter Username" name="fname" required />
+        <input type="password" placeholder="Enter Password" name="psw" required />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Create User</button>
+    </form>
+</div>
+<form action="http://localhost:3000/">
+  <button type="submit">Go back to homepage</button>  
+</form>
+</html>
+
+
+
+

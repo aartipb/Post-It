@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/styles.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(e) {
+          $("#delete").on("click",function(){
+              $.ajax({
+                    url:"http://localhost:3000/delete",
+                    method: "GET",
+                    data : "",
+                    cache : false,
+                    async: false,
+                    success : function (data) {
+                        if(data){
+                            alert("Database Deleted!")
+                        }
+                        else{
+                          alert("Database Not Deleted")
+                        }
+                    },
+                    error : function () {
+                        alert("Oops! Something went wrong");
+                    }
+              })
+          })
+        })
+    </script>
+</head>
+
+<div class="container">
+    <h1>Post-it-4-24!</h1>
+    <br><br><br><br><br><br><br><br>
+    <a href="http://localhost:3000/user_creation"><div class="button button-1">Sign Up Today!</div></a>
+    <br><br><br><br><br><br><br><br>
+    <a href="http://localhost:3000/login"><div class="button button-2">Jot Down a Few Notes!</div></a>
+    <br><br><br><br><br><br><br><br>
+    <a href="http://localhost:3000/find"><div class="button button-3">Find a user</div></a>
+    <br><br><br><br><br><br><br><br>
+    <a href="http://localhost:3000/coolpage"><div class="button button-4">About</div></a>
+    <br><br><br><br><br><br><br><br>
+    <div class="button button-5" id="delete">Delete All Stored Information</div>
+    <br><br><br><br><br><br><br><br><br><br><br>
+    <h4>(Accounts and Notes stored for 24 hours!)</h4>
+  </div>
+  
+  
+</html>

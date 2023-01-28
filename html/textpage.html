@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function () {
+        $('textarea').on('input', function() {
+            var characterCount = this.value.length,
+                current = $('#current'),
+                maximum = $('#maximum'),
+                theCount = $('#the-count');
+            
+            current.text(characterCount);
+
+            
+            if (characterCount >= 250) {
+            maximum.css('color', '#8f0001');
+            current.css('color', '#8f0001');
+            current.css('font-weight','bold');
+            maximum.css('font-weight','bold');
+            } else {
+            maximum.css('color', '#666');
+            current.css('color','#666');
+            maximum.css('font-weight','normal');
+            }
+
+
+        });
+        $.get('http://localhost:3000/data', {}, function(data){
+            $("#notes").val(data);
+        })
+    })
+    </script>
+    <link rel="stylesheet" type="text/css" href="/text_page.css" />
+</head>
+
+<div class="wrapper">
+    <h1>Welcome!</h1>
+    <form action="http://localhost:3000/process_stuff" method="post">
+        <label>Create a note:</label>
+        <textarea name="notes" id="notes" maxlength="300" placeholder="Start Typin..."autofocus></textarea>
+        <input type="submit" value="Save Note">
+    </form>
+    <div id="the-count">
+        <span id="current">0</span>
+        <span id="maximum">/ 300</span>
+    </div>
+  </div>
+</body>
+</html>
+
